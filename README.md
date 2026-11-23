@@ -22,10 +22,12 @@
 <p align="center">
   <img src="docs/assets/reveal.gif" width="52%" alt="The same cotton plot at day 0, day 3 and day 7 of defoliation">
 </p>
+<p align="center"><i>One plot, three dates. The occluder leaves; the objects do not.</i></p>
 
 <p align="center">
   <img src="docs/assets/method_overview.gif" width="100%" alt="TePD: the training path uses the later view through a frozen oracle; the inference path uses the student alone">
 </p>
+<p align="center"><i>Training uses the later view through a frozen oracle. Inference uses the student alone.</i></p>
 
 > **Train with the revealed future. Deploy on the occluded present.**
 > A later, less-occluded view of the same scene supervises a student network that only ever sees the occluded image.
