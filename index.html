@@ -2,47 +2,46 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TePD: Temporal Privileged Distillation | WiML @ NeurIPS 2026</title><meta name="description" content="Train with the revealed future, deploy on the occluded present: a later view of the same scene supervises a student that sees only the occluded image.">
 <meta property="og:title" content="TePD: Temporal Privileged Distillation | WiML @ NeurIPS 2026"><meta property="og:description" content="Train with the revealed future, deploy on the occluded present: a later view of the same scene supervises a student that sees only the occluded image."><meta property="og:type" content="website">
-<style>:root{--pri:#1F4D3A;--acc:#B4432B;--tint:#EAF2ED;--tint2:#FBEFE9}*{box-sizing:border-box}body{margin:0;font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#1e1e1e;background:#fff}
-main{max-width:980px;margin:0 auto;padding:0 22px 70px}h1,h2,h3{font-family:Georgia,Cambria,"Times New Roman",serif;color:var(--pri);line-height:1.2}
-h1{font-size:clamp(28px,4.6vw,46px);margin:.2em 0 .3em}h2{font-size:27px;margin:2.2em 0 .5em;padding:.35em .6em;background:var(--tint);border-radius:10px}
-h2 span{display:inline-block;width:1.5em;height:1.5em;line-height:1.5em;text-align:center;border-radius:50%;background:var(--pri);color:#fff;font-size:.75em;margin-right:.5em;vertical-align:.1em}
-.hero{padding:56px 0 8px}.center{text-align:center}.authors{font-size:18px;margin:.4em 0 .1em}.affil{color:#56605a;font-size:15px;margin:0}
-.venue{color:var(--acc);font-weight:700;margin:.7em 0}.btns a{display:inline-block;margin:6px 8px 6px 0;padding:9px 18px;border-radius:999px;background:var(--pri);color:#fff;text-decoration:none;font-weight:600;font-size:15px}
-.btns a.alt{background:#fff;color:var(--pri);border:2px solid var(--pri)}.abs{max-width:840px;margin:0 auto;text-align:justify}h2.plain{background:none;text-align:center;padding:0;margin-top:1.6em}.btns a.dark{background:#2b2b2b;border:2px solid #2b2b2b}.lead{background:var(--tint2);border-radius:12px;padding:16px 20px;font-size:19px;margin:22px 0}
-.lead b,.hl{color:var(--acc);font-weight:700}img{max-width:100%;height:auto;border-radius:8px}figure{margin:18px 0;text-align:center}figcaption{color:#56605a;font-size:14.5px;font-style:italic;margin-top:6px}
-.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;align-items:start}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:18px 0}
-.stat{background:var(--tint2);border-radius:12px;padding:14px;text-align:center}.stat b{display:block;font:700 34px Georgia,serif;color:var(--acc)}.stat span{font-size:14px}
-table{border-collapse:collapse;width:100%;margin:14px 0;font-size:16px}th{background:var(--pri);color:#fff;text-align:left;padding:8px 12px}td{padding:8px 12px;border-bottom:1px solid #d5ded8}
-tr.us td{background:var(--tint2);color:var(--acc);font-weight:700}td.n,th.n{text-align:center}pre{background:#f4f6f5;border-radius:10px;padding:14px 16px;overflow:auto;font-size:13.5px;line-height:1.45}
-.eq{background:var(--tint);border-radius:10px;padding:10px 16px;text-align:center;font-family:"Cambria Math",Georgia,serif;font-size:18px;overflow-x:auto}
-footer{color:#56605a;font-size:14px;border-top:1px solid #d5ded8;margin-top:50px;padding-top:16px}a{color:var(--pri)}li{margin:.3em 0}</style></head><body><main>
+<style>:root{--pri:#1F4D3A;--acc:#B4432B;--tint:#EAF2ED;--tint2:#FBEFE9}*{box-sizing:border-box}body{margin:0;font:17px/1.65 "Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;color:#363636;background:#fff}
+main{max-width:960px;margin:0 auto;padding:0 24px 70px}h1,h2,h3{font-family:"Google Sans","Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;color:#363636;line-height:1.2}
+h1{font-size:clamp(30px,4.8vw,48px);font-weight:700;margin:.2em 0 .35em}h2{font-size:30px;font-weight:700;text-align:center;margin:2.4em 0 .7em}
+h3{font-size:20px;font-weight:400;color:#4a4a4a}.hero{padding:56px 0 8px}.center{text-align:center}.authors{font-size:20px;margin:.5em 0 .15em}.affil{color:#4a4a4a;font-size:16px;margin:0}
+.venue{font-size:18px;font-weight:700;color:#363636;margin:.9em 0 .2em}.btns{margin:1em 0}.btns a{display:inline-block;margin:5px 5px;padding:9px 20px;border-radius:999px;background:#363636;color:#fff;text-decoration:none;font-size:16px}
+.btns a:hover{background:#111}.lead{max-width:820px;margin:20px auto 6px;text-align:center;font-size:18px;color:#4a4a4a}.abs{max-width:820px;margin:0 auto;text-align:justify}
+img{max-width:100%;height:auto}figure{margin:20px 0;text-align:center}figcaption{color:#4a4a4a;font-size:15px;margin-top:8px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:start}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:22px 0;border-top:1px solid #dbdbdb;border-bottom:1px solid #dbdbdb;padding:12px 0}
+.stat{text-align:center}.stat b{display:block;font-size:32px;font-weight:700;color:#363636}.stat span{font-size:14px;color:#4a4a4a}
+table{border-collapse:collapse;width:100%;max-width:760px;margin:18px auto;font-size:16px;border-top:2px solid #363636;border-bottom:2px solid #363636}th{text-align:left;padding:8px 12px;border-bottom:1px solid #363636}td{padding:7px 12px}
+tr.us td{font-weight:700;border-top:1px solid #dbdbdb}td.n,th.n{text-align:center}pre{background:#f5f5f5;padding:16px 18px;overflow:auto;font-size:13.5px;line-height:1.45}
+.eq{background:#f5f5f5;padding:12px 16px;text-align:center;font-family:"Cambria Math",Georgia,serif;font-size:18px;overflow-x:auto}
+p,ul,ol{max-width:820px;margin-left:auto;margin-right:auto}footer{color:#4a4a4a;font-size:14px;text-align:center;border-top:1px solid #dbdbdb;margin-top:56px;padding-top:18px}a{color:#3273dc}li{margin:.35em 0}</style></head><body><main>
 <section class="hero center">
 <p class="venue">Accepted at the WiML Workshop · NeurIPS 2026 · Atlanta · December 9</p>
 <h1>TePD: Temporal Privileged Distillation for Amodal Counting Under Structured Occlusion</h1>
 <p class="authors"><b>Harshitha Manjunatha</b><sup>1</sup> · Prabha Sundaravadivel<sup>2</sup> · Shekhar Suman Borah<sup>2</sup> · Lakshman Tamil<sup>1</sup> · H. Allen Torbert<sup>3</sup></p>
 <p class="affil"><sup>1</sup>The University of Texas at Dallas &nbsp; <sup>2</sup>The University of Texas at Tyler &nbsp; <sup>3</sup>USDA Agricultural Research Service</p>
-<p class="btns"><a class="dark" href="https://openreview.net/forum?id=a7JfTmmI9s">Paper (OpenReview)</a><a class="dark" href="https://github.com/harshitha-8/WIML_NeurIPS2026">GitHub</a><a class="alt" href="https://harshitha-8.github.io/DEV-AI_2026/">Companion: developmental view (DevAI)</a></p>
+<p class="btns"><a href="https://openreview.net/forum?id=a7JfTmmI9s">Paper (OpenReview)</a><a href="https://github.com/harshitha-8/WIML_NeurIPS2026">GitHub</a><a href="https://harshitha-8.github.io/DEV-AI_2026/">Companion: developmental view (DevAI)</a></p>
 <p class="lead"><b>Train with the revealed future. Deploy on the occluded present.</b> A later, less-occluded view of the same scene supervises a student network that only ever sees the occluded image.</p>
 <figure><img src="assets/reveal.gif" alt="The same cotton plot at day 0, day 3 and day 7 of defoliation" style="max-width:460px"><figcaption>One plot, three dates. The occluder leaves; the objects do not.</figcaption></figure>
 <figure><img src="assets/pipeline.gif" alt="Training with a frozen teacher, inference with the student alone" style="max-width:820px"><figcaption>The later view is used in training only.</figcaption></figure>
 </section>
-<h2 class="plain">Abstract</h2>
+<h2>Abstract</h2>
 <p class="abs">Most amodal vision methods treat occlusion as a spatial distortion to complete or inpaint. TePD asks whether a change in visibility over time can teach a model what stays geometrically fixed. We pair an occluded view with a registered later view of the same location and use the later view as privileged information: available during training, absent at test time. A frozen oracle encodes the revealed view, a lightweight student encodes the occluded one, and the student is trained to match the oracle in feature space while a frozen semantic anchor keeps it on the target. On Cotton-TePD, 3,000 registered UAV image pairs taken before and after chemical defoliation, the student reaches a latent cosine similarity of 0.873 and a counting MAE of 4.2, against 0.745 and 7.2 for the strongest baseline evaluated.</p>
-<h2><span>1</span>Why</h2>
+<h2>Motivation</h2>
 <p>Most amodal vision methods treat occlusion as a spatial distortion to complete or inpaint. Counting is less forgiving than image synthesis: a plausible completion can add or remove objects. Yet many scenes reveal themselves over time. In cotton, chemical defoliation removes the leaf canopy over several days while the bolls stay approximately in place, so the later image holds exactly what the earlier image lacks.</p>
-<p><span class="hl">Question.</span> Can the change in visibility itself tell a model what stays geometrically unchanged?</p>
-<h2><span>2</span>What</h2>
+<p><b>Question.</b> Can the change in visibility itself tell a model what stays geometrically unchanged?</p>
+<h2>Contributions</h2>
 <ul><li><b>Future visibility as privileged supervision</b> for amodal perception: available in training, absent at test time.</li>
 <li><b>A dual-space objective</b> that combines geometric reconstruction with a frozen semantic anchor.</li>
 <li><b>Cotton-TePD</b>: 3,000 registered 512×512 UAV image pairs taken before and after chemical defoliation, a real time-revealing reference instead of a synthetic one.</li></ul>
-<h2><span>3</span>How</h2>
+<h2>Method</h2>
 <figure><img src="assets/method_overview.png" alt="TePD architecture"><figcaption>The revealed t<sub>2</sub> frame provides privileged supervision during training; at inference the student predicts from the occluded t<sub>1</sub> frame alone.</figcaption></figure>
 <p class="eq">ẑ = S(x<sub>t1</sub>), &nbsp; z<sub>gt</sub> = T(x<sub>t2</sub>) &nbsp;&nbsp;|&nbsp;&nbsp; L<sub>rec</sub> = 1 − cos(P(ẑ), z<sub>gt</sub>) &nbsp;&nbsp;|&nbsp;&nbsp; L<sub>total</sub> = λ<sub>1</sub>L<sub>rec</sub> + λ<sub>2</sub>L<sub>sem</sub>, &nbsp; λ<sub>1</sub> = 1.0, λ<sub>2</sub> = 0.1</p>
 <ul><li><b>Geometric term.</b> Projector P maps student features into the frozen teacher's space; cosine distance aligns them.</li>
 <li><b>Semantic term.</b> A second projector Q maps student features into the frozen CLIP text space, where the loss favors "cotton boll" over "leaves".</li>
 <li><b>Independent projectors.</b> We do not assume CLIP embeddings and teacher features are comparable.</li>
 <li><b>At test time</b> the teacher and CLIP are removed. A ResNet-18 student and a counting head run alone.</li></ul>
-<h2><span>4</span>Evidence</h2>
+<h2>Results</h2>
 <p>2,500 training and 500 test pairs, corrected for 1-2 m platform drift with SIFT and RANSAC. LCS scores representation quality in a fixed evaluation space. MAE scores counting with the encoder frozen and a basic regression head, which isolates the representation from the counting model.</p>
 <div class="stats"><div class="stat"><b>0.873</b><span>latent cosine similarity<br>(best baseline 0.745)</span></div><div class="stat"><b>4.2</b><span>counting MAE<br>(best baseline 7.2)</span></div><div class="stat"><b>+17.2%</b><span>LCS vs strongest baseline</span></div><div class="stat"><b>−41.7%</b><span>MAE vs strongest baseline</span></div></div>
 <figure><img src="assets/results.gif" alt="LCS and counting MAE for all methods" style="max-width:760px"></figure>
@@ -53,21 +52,21 @@ footer{color:#56605a;font-size:14px;border-top:1px solid #d5ded8;margin-top:50px
 <tr><td>MAE-ViT</td><td>masked reconstruction</td><td class="n">0.745</td><td class="n">7.2</td></tr>
 <tr class="us"><td>TePD (ours)</td><td>temporal privilege</td><td class="n">0.873</td><td class="n">4.2</td></tr></table>
 <p>Across the three study regions: LCS 0.871 / 0.875 / 0.869 and MAE 4.1 / 4.3 / 4.2, evidence against a place-specific effect.</p>
-<h2><span>5</span>Controls</h2>
+<h2>Ablations and controls</h2>
 <div class="row"><figure><img src="assets/semantic_weight_sweep.png" alt="Semantic weight sweep"><figcaption>Removing the semantic anchor lowers LCS from 0.87 to 0.82. The default weight 0.1 sits in a stable range.</figcaption></figure>
 <figure><img src="assets/synthetic_control.png" alt="Synthetic control"><figcaption>Texture-free synthetic control: TePD reaches LCS 0.972, direct supervised regression 0.64. A different setup from the 0.873 benchmark result.</figcaption></figure></div>
 <figure><img src="assets/latent_topography.jpg" alt="Student feature magnitude" style="max-width:460px"><figcaption>Student feature magnitude over an occluded input. Peaks line up with several boll locations visible only in the later view (descriptive).</figcaption></figure>
-<h2><span>6</span>Scope</h2>
+<h2>Limitations</h2>
 <ul><li>For sequences where occlusion decreases over time while the target keeps its form. Validated on cotton only.</li>
 <li>Homography handles platform drift, not irregular motion: wind above 15 mph causes 5-10 cm displacements in about 2% of cases, and shadows can imitate a newly visible feature.</li>
 <li>Partial or uneven revelation and dynamic scenes remain to be evaluated.</li></ul>
-<h2><span>7</span>Why this matters outside agriculture</h2>
+<h2>Broader relevance</h2>
 <p>Cotton is the test bed, not the point. TePD is a training recipe for any perception system that has to act on a partial view now and that will, at some later time, get a clearer look at the same scene.</p>
 <ul><li><b>Supervision from the world's own dynamics.</b> The training signal is a second observation of the same scene, not a human-completed amodal mask. Systems that revisit scenes collect such pairs as a by-product of operating.</li>
 <li><b>No cost at deployment.</b> The privileged view, the teacher and the CLIP guide are used in training and then removed. Inference is one pass through a ResNet-18 student and a counting head.</li>
 <li><b>Instance-faithful, not merely plausible.</b> The student is trained to agree with the features of the particular scene that was later revealed. Measurement tasks need that property, and generative completion does not guarantee it.</li></ul>
 <p>A new domain has to provide two registered observations of one scene, occlusion that decreases between them, and object identity that persists. Candidate settings named in the paper are snow melt, tidal recession, staged assembly and repeated robot interaction. These are hypotheses: only cotton and one synthetic control have been tested.</p>
-<h2><span>8</span>Citation</h2>
+<h2>BibTeX</h2>
 <pre>@inproceedings{manjunatha2026tepd,
   title     = {TePD: Temporal Privileged Distillation for Amodal Counting Under Structured Occlusion},
   author    = {Manjunatha, Harshitha and Sundaravadivel, Prabha and Borah, Shekhar Suman and Tamil, Lakshman and Torbert, H. Allen},
