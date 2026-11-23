@@ -9,10 +9,12 @@
 <p align="center">
   <img alt="WiML Workshop at NeurIPS 2026" src="https://img.shields.io/badge/WiML%20Workshop-NeurIPS%202026-1F4D3A">
   <img alt="Atlanta" src="https://img.shields.io/badge/Atlanta-Dec%209%2C%202026-B4432B">
+  <a href="https://openreview.net/forum?id=a7JfTmmI9s"><img alt="Accepted" src="https://img.shields.io/badge/Status-Accepted-2E7D32"></a>
   <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-lightgrey">
 </p>
 
 <p align="center">
+  <a href="https://openreview.net/forum?id=a7JfTmmI9s"><b>Paper (OpenReview)</b></a> ·
   <a href="https://harshitha-8.github.io/WIML_NeurIPS2026/"><b>Project page</b></a> ·
   <a href="https://github.com/harshitha-8/DEV-AI_2026"><b>Companion: the developmental view (DevAI)</b></a>
 </p>
@@ -130,6 +132,10 @@ docs/assets/     figures and animations
 ```
 
 This repository currently hosts the project page and figures. Code and the Cotton-TePD data are not included here yet.
+
+## Paper
+
+Accepted paper and reviews on OpenReview: https://openreview.net/forum?id=a7JfTmmI9s
 
 ## Citation
 
