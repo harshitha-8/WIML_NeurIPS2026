@@ -51,7 +51,7 @@ Most amodal vision methods treat occlusion as a spatial distortion to complete o
 
 ## How it works
 
-<p align="center"><img src="docs/assets/method_overview.png" width="92%" alt="TePD training and inference"></p>
+<p align="center"><img src="docs/assets/method_overview.png" width="100%" alt="TePD training and inference"></p>
 <p align="center"><i>TePD training and inference. A frozen oracle encodes the revealed view; the student and its two projectors are the only trained parts. At inference the student and a counting head run on the occluded view alone.</i></p>
 
 With student features $\hat z = S(x_{t_1})$ and teacher features $z_{gt} = T(x_{t_2})$:
@@ -106,15 +106,23 @@ Against the strongest baseline (MAE-ViT), TePD improves LCS by **17.2%** and red
 - Homography corrects platform drift but not irregular motion. Wind above 15 mph produces 5-10 cm displacements in about 2% of cases, and shadows can imitate a newly visible feature.
 - Partial or uneven revelation and dynamic scenes have not been evaluated.
 
-## Beyond the cotton field
+## Why this matters outside agriculture
 
-Nothing in the objective is specific to crops. The method needs three conditions:
+Cotton is the test bed, not the point. TePD is a training recipe for any perception system that has to act on a partial view now and that will, at some later time, get a clearer look at the same scene.
+
+**What carries over**
+
+- **Supervision from the world's own dynamics.** The training signal is a second observation of the same scene, not a human-completed amodal mask. Systems that revisit scenes collect such pairs as a by-product of operating.
+- **No cost at deployment.** The privileged view, the teacher and the CLIP guide are used in training and then removed. Inference is one pass through a ResNet-18 student and a counting head.
+- **Instance-faithful, not merely plausible.** The student is trained to agree with the features of the particular scene that was later revealed. Measurement tasks need that property, and generative completion does not guarantee it.
+
+**What a new domain has to provide**
 
 1. two registered observations of one scene,
 2. occlusion that decreases between them,
 3. object identity that persists across the interval.
 
-Settings that plausibly meet them include snow melt, tidal recession, staged assembly and repeated robot interaction. None of these has been tested; each would need evidence that the later view shows the same instances.
+Candidate settings named in the paper are snow melt, tidal recession, staged assembly and repeated robot interaction. These are hypotheses. Only cotton and one synthetic control have been tested, and each new setting would need evidence that the later view shows the same instances.
 
 ## At NeurIPS 2026
 

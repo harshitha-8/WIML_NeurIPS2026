@@ -61,8 +61,13 @@ footer{color:#56605a;font-size:14px;border-top:1px solid #d5ded8;margin-top:50px
 <ul><li>For sequences where occlusion decreases over time while the target keeps its form. Validated on cotton only.</li>
 <li>Homography handles platform drift, not irregular motion: wind above 15 mph causes 5-10 cm displacements in about 2% of cases, and shadows can imitate a newly visible feature.</li>
 <li>Partial or uneven revelation and dynamic scenes remain to be evaluated.</li></ul>
-<p>The objective itself is not tied to crops. It needs two registered observations of one scene, occlusion that decreases between them, and object identity that persists. Snow melt, tidal recession, staged assembly and repeated robot interaction are candidate settings; none has been tested.</p>
-<h2><span>7</span>Citation</h2>
+<h2><span>7</span>Why this matters outside agriculture</h2>
+<p>Cotton is the test bed, not the point. TePD is a training recipe for any perception system that has to act on a partial view now and that will, at some later time, get a clearer look at the same scene.</p>
+<ul><li><b>Supervision from the world's own dynamics.</b> The training signal is a second observation of the same scene, not a human-completed amodal mask. Systems that revisit scenes collect such pairs as a by-product of operating.</li>
+<li><b>No cost at deployment.</b> The privileged view, the teacher and the CLIP guide are used in training and then removed. Inference is one pass through a ResNet-18 student and a counting head.</li>
+<li><b>Instance-faithful, not merely plausible.</b> The student is trained to agree with the features of the particular scene that was later revealed. Measurement tasks need that property, and generative completion does not guarantee it.</li></ul>
+<p>A new domain has to provide two registered observations of one scene, occlusion that decreases between them, and object identity that persists. Candidate settings named in the paper are snow melt, tidal recession, staged assembly and repeated robot interaction. These are hypotheses: only cotton and one synthetic control have been tested.</p>
+<h2><span>8</span>Citation</h2>
 <pre>@inproceedings{manjunatha2026tepd,
   title     = {TePD: Temporal Privileged Distillation for Amodal Counting Under Structured Occlusion},
   author    = {Manjunatha, Harshitha and Sundaravadivel, Prabha and Borah, Shekhar Suman and Tamil, Lakshman and Torbert, H. Allen},
