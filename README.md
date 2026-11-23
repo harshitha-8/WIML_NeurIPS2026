@@ -20,9 +20,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/reveal.gif" width="44%" alt="The same cotton plot at day 0, day 3 and day 7 of defoliation">
-  &nbsp;
-  <img src="docs/assets/pipeline.gif" width="52%" alt="Training uses the later view through a frozen teacher; inference uses the student alone">
+  <img src="docs/assets/reveal.gif" width="52%" alt="The same cotton plot at day 0, day 3 and day 7 of defoliation">
 </p>
 
 > **Train with the revealed future. Deploy on the occluded present.**
